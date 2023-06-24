@@ -1,0 +1,528 @@
+package LetsGrowMore;
+import javax.swing.*;
+import javax.swing.JButton;
+import java.awt.*;
+import java.awt.Desktop.Action;
+import java.awt.event.*;
+import java.awt.event.ActionListener;
+import java.util.Random;
+
+public class Tic_Tac_Toe implements ActionListener
+{
+    JFrame frame;
+    Random random;
+    JButton b1,b2,b3,b4,b5,b6,b7,b8,b9;
+    JPanel p1;
+    boolean player_1;
+    boolean player_2;
+    
+
+    Tic_Tac_Toe()
+    {
+       random= new Random();
+       frame = new JFrame();
+
+       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       frame.getContentPane().setBackground(new Color (50,50,50));
+       frame.setLayout(new BorderLayout());
+
+        p1= new JPanel();
+        p1.setSize(500, 500);
+
+         b1 =new JButton();
+         b2 =new JButton();
+         b3 =new JButton();
+         b4 =new JButton();
+         b5 =new JButton();
+         b6 =new JButton();
+         b7 =new JButton();
+         b8 =new JButton();
+         b9 =new JButton();
+
+        frame.add(b1);
+        frame.add(b2);
+        frame.add(b3);
+        frame.add(b4);
+        frame.add(b5);
+        frame.add(b6);
+        frame.add(b7);
+        frame.add(b8);
+        frame.add(b9); 
+        p1.add(b1);
+        p1.add(b2);
+        p1.add(b3);
+        p1.add(b4);
+        p1.add(b5);
+        p1.add(b6);
+        p1.add(b7);
+        p1.add(b8);
+        p1.add(b9);
+        p1.setLayout(new GridLayout(3,3));
+
+        b1.setFont(new Font("MV Boli", Font.BOLD, 120));
+        b2.setFont(new Font("MV Boli", Font.BOLD, 120));
+        b3.setFont(new Font("MV Boli", Font.BOLD, 120));
+        b4.setFont(new Font("MV Boli", Font.BOLD, 120));
+        b5.setFont(new Font("MV Boli", Font.BOLD, 120));
+        b6.setFont(new Font("MV Boli", Font.BOLD, 120));
+        b7.setFont(new Font("MV Boli", Font.BOLD, 120));
+        b8.setFont(new Font("MV Boli", Font.BOLD, 120));
+        b9.setFont(new Font("MV Boli", Font.BOLD, 120));
+
+        b1.setFocusable(false);
+        b2.setFocusable(false);
+        b3.setFocusable(false);
+        b4.setFocusable(false);
+        b5.setFocusable(false);
+        b6.setFocusable(false);
+        b7.setFocusable(false);
+        b8.setFocusable(false);
+        b9.setFocusable(false);
+
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+        b3.addActionListener(this); 
+        b4.addActionListener(this);
+        b5.addActionListener(this);
+        b6.addActionListener(this);
+        b7.addActionListener(this);
+        b8.addActionListener(this);
+        b9.addActionListener(this);
+         
+           firstTurn();
+ 
+        frame.add(p1);
+        frame.setSize(800,800);
+        frame.setVisible(true);
+    }
+     public static void main(String args[])
+     {
+        new Tic_Tac_Toe();  
+     }
+
+       public void actionPerformed(ActionEvent ex)
+       {  
+                if(ex.getSource()==b1)
+                {
+                  if(player_1)
+                  {
+                    if(b1.getText()=="")
+                    {
+                      b1.setForeground(new Color(255,0,0));
+                      b1.setText("X");
+                      player_1=false;
+                      check();
+
+                    }
+                  }
+                  else
+                  {
+                    if(b1.getText()=="")
+                    {
+                      b1.setForeground(new Color(0,0,255));
+                      b1.setText("O");
+                      player_1=true;
+                      check();
+
+                    }
+
+                  }
+                }
+
+                        if(ex.getSource()==b2)
+                        {
+                          if(player_1)
+                          {
+                            if(b2.getText()=="")
+                            {
+                              b2.setForeground(new Color(255,0,0));
+                              b2.setText("X");
+                              player_1=false;
+                              check();
+
+                            }
+                          }
+                          else
+                          {
+                            if(b2.getText()=="")
+                            {
+                              b2.setForeground(new Color(0,0,255));
+                              b2.setText("O");
+                              player_1=true;
+                              check();
+
+                            }
+
+                          }
+                        }
+
+         if(ex.getSource()==b3)
+            {
+              if(player_1)
+              {
+                if(b3.getText()=="")
+                {
+                  b3.setForeground(new Color(255,0,0));
+                  b3.setText("X");
+                  player_1=false;
+                  check();
+
+                }
+              }
+              else
+              {
+                if(b3.getText()=="")
+                {
+                  b3.setForeground(new Color(0,0,255));
+                  b3.setText("O");
+                  player_1=true;
+                  check();
+
+                }
+
+              }
+            }
+
+                      if(ex.getSource()==b4)
+                      {
+                        if(player_1)
+                        {
+                          if(b4.getText()=="")
+                          {
+                            b4.setForeground(new Color(255,0,0));
+                            b4.setText("X");
+                            player_1=false;
+                            check();
+
+                          }
+                        }
+                        else
+                        {
+                          if(b4.getText()=="")
+                          {
+                            b4.setForeground(new Color(0,0,255));
+                            b4.setText("O");
+                            player_1=true;
+                            check();
+
+                          }
+
+                        }
+                      }
+
+                            if(ex.getSource()==b5)
+                            {
+                              if(player_1)
+                              {
+                                if(b5.getText()=="")
+                                {
+                                  b5.setForeground(new Color(255,0,0));
+                                  b5.setText("X");
+                                  player_1=false;
+                                  check();
+
+                                }
+                              }
+                              else
+                              {
+                                if(b5.getText()=="")
+                                {
+                                  b5.setForeground(new Color(0,0,255));
+                                  b5.setText("O");
+                                  player_1=true;
+                                  check();
+
+                                }
+
+                              }
+                            }
+
+                                  if(ex.getSource()==b6)
+                                  {
+                                    if(player_1)
+                                    {
+                                      if(b6.getText()=="")
+                                      {
+                                        b6.setForeground(new Color(255,0,0));
+                                        b6.setText("X");
+                                        player_1=false;
+                                        check();
+
+                                      }
+                                    }
+                                    else
+                                    {
+                                      if(b6.getText()=="")
+                                      {
+                                        b6.setForeground(new Color(0,0,255));
+                                        b6.setText("O");
+                                        player_1=true;
+                                        check();
+
+                                      }
+
+                                    }
+                                  }
+
+                if(ex.getSource()==b7)
+                {
+                  if(player_1)
+                  {
+                    if(b7.getText()=="")
+                    {
+                      b7.setForeground(new Color(255,0,0));
+                      b7.setText("X");
+                      player_1=false;
+                      check();
+
+                    }
+                  }
+                  else
+                  {
+                    if(b7.getText()=="")
+                    {
+                      b7.setForeground(new Color(0,0,255));
+                      b7.setText("O");
+                      player_1=true;
+                      check();
+
+                    }
+
+                  }
+                }
+
+                    if(ex.getSource()==b8)
+                    {
+                      if(player_1)
+                      {
+                        if(b8.getText()=="")
+                        {
+                          b8.setForeground(new Color(255,0,0));
+                          b8.setText("X");
+                          player_1=false;
+                          check();
+
+                        }
+                      }
+                      else
+                      {
+                        if(b8.getText()=="")
+                        {
+                          b8.setForeground(new Color(0,0,255));
+                          b8.setText("O");
+                          player_1=true;
+                          check();
+
+                        }
+
+                      }
+                    }
+
+                  if(ex.getSource()==b9)
+                  {
+                    if(player_1)
+                    {
+                      if(b9.getText()=="")
+                      {
+                        b9.setForeground(new Color(255,0,0));
+                        b9.setText("X");
+                        player_1=false;
+                        check();
+
+                      }
+                    }
+                    else
+                    {
+                      if(b9.getText()=="")
+                      {
+                        b9.setForeground(new Color(0,0,255));
+                        b9.setText("O");
+                        player_1=true;
+                        check();
+
+                      }
+
+                    }
+                  }
+       }
+
+    public void firstTurn() 
+      {
+        
+        if(random.nextInt(2)==0)
+        {
+          player_1=true;
+          JOptionPane.showMessageDialog(frame,"X Turn");
+          
+        }
+        else
+        {
+          player_2=false;
+          JOptionPane.showMessageDialog(frame,"O Turn ");
+
+        }
+
+      }
+    
+      public void check() 
+      {
+        if(
+            (b1.getText()=="X") &&
+            (b2.getText()=="X") &&
+            (b3.getText()=="X") 
+
+          )
+          {
+            xWins(1,2,3);
+          }
+       if(
+            (b4.getText()=="X") &&
+            (b5.getText()=="X") &&
+            (b6.getText()=="X") 
+
+          )
+          {
+            xWins(4,5,6);
+          }
+       if(
+            (b7.getText()=="X") &&
+            (b8.getText()=="X") &&
+            (b9.getText()=="X") 
+
+          )
+          {
+            xWins(7,8,9);
+          }
+      if(
+            (b1.getText()=="X") &&
+            (b4.getText()=="X") &&
+            (b7.getText()=="X") 
+
+          )
+          {
+            xWins(1,4,7);
+          }   
+      if(
+            (b2.getText()=="X") &&
+            (b5.getText()=="X") &&
+            (b8.getText()=="X") 
+
+          )
+          {
+            xWins(2,5,8);
+          }
+      if(
+            (b3.getText()=="X") &&
+            (b6.getText()=="X") &&
+            (b9.getText()=="X") 
+
+          )
+          {
+            xWins(3,6,9);
+          }
+      if(
+            (b1.getText()=="X") &&
+            (b5.getText()=="X") &&
+            (b9.getText()=="X") 
+
+          )
+          {
+            xWins(1,5,9);
+          }
+       if(
+            (b3.getText()=="X") &&
+            (b5.getText()=="X") &&
+            (b7.getText()=="X") 
+
+          )
+          {
+            xWins(3,5,7);
+          }
+
+
+
+
+          if(
+            (b1.getText()=="O") &&
+            (b2.getText()=="O") &&
+            (b3.getText()=="O") 
+
+          )
+          {
+            oWins(1,2,3);
+          }
+       if(
+            (b4.getText()=="O") &&
+            (b5.getText()=="O") &&
+            (b6.getText()=="O") 
+
+          )
+          {
+            oWins(4,5,6);
+          }
+       if(
+            (b7.getText()=="O") &&
+            (b8.getText()=="O") &&
+            (b9.getText()=="o") 
+
+          )
+          {
+            oWins(7,8,9);
+          }
+      if(
+            (b1.getText()=="O") &&
+            (b4.getText()=="O") &&
+            (b7.getText()=="O") 
+
+          )
+          {
+            oWins(1,4,7);
+          }   
+      if(
+            (b2.getText()=="O") &&
+            (b5.getText()=="O") &&
+            (b8.getText()=="O") 
+
+          )
+          {
+            oWins(2,5,8);
+          }
+      if(
+            (b3.getText()=="O") &&
+            (b6.getText()=="O") &&
+            (b9.getText()=="O") 
+
+          )
+          {
+            oWins(3,6,9);
+          }
+      if(
+            (b1.getText()=="O") &&
+            (b5.getText()=="O") &&
+            (b9.getText()=="O") 
+
+          )
+          {
+            oWins(1,5,9);
+          }
+       if(
+            (b3.getText()=="O") &&
+            (b5.getText()=="O") &&
+            (b7.getText()=="O") 
+
+          )
+          {
+            oWins(3,5,7);
+          }
+
+      }   
+      public void xWins(int a, int b ,int c) 
+      {
+        JOptionPane.showMessageDialog(frame,"X Wins");
+        
+      }
+      public void oWins(int a, int b ,int c) 
+      {
+        JOptionPane.showMessageDialog(frame,"O Wins");
+      }
+    }  
